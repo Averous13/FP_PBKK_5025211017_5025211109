@@ -54,6 +54,7 @@ Route::delete('/delete-game/{game}', [GameController::class, 'deleteGame'])->mid
 
 // Admin: Player
 Route::resource('/player', PlayerController::class)->middleware(['auth', 'verified', 'admin']);
+Route::get('/show-player', [PlayerController::class, 'showPlayer'])->middleware(['auth', 'verified', 'admin'])->name('show-player');
 
 // Admin: Season
 Route::get('/show-season', [SeasonController::class, 'showSeason'])->middleware(['auth', 'verified', 'admin'])->name('show-season');

@@ -50,14 +50,15 @@ class PlayerController extends Controller
             'height' => ['required','integer' ,'between:150,220'],
             'position_id' => ['required'],
             'team_id' => ['required'],
-            'country_id' => ['required']
+            'country_id' => ['required'],
+            'city' => ['required', 'max:50'],
         ]);
 
-        Player::create($validatedData);
+        // dd($validatedData);
 
-        return redirect('player')->with('success', 'New Player has been assigned');
+        // Player::create($validatedData);
 
-
+        return view('admin.player.show-player', ['players' => $validatedData]);
     }
 
     /**
